@@ -70,7 +70,7 @@ wss.on('connection', function connection(ws, request) {
       if (!user) {
         return;
       }
-      user.rooms = user?.rooms.filter(x => x === parsedData.room);
+      user.rooms = user?.rooms.filter(x => x === parsedData.room);   //need change
     }
 
     console.log("message received")
@@ -87,7 +87,7 @@ wss.on('connection', function connection(ws, request) {
           userId
         }
       });
-
+    
       users.forEach(user => {
         if (user.rooms.includes(roomId)) {
           user.ws.send(JSON.stringify({
